@@ -13,7 +13,6 @@ for filename in os.listdir("/proc/"):
         # get the command name for that process
         process_name = subprocess.Popen(["ps", "-p", filename, "--no-headers", "-o", "comm"], stdout=subprocess.PIPE).communicate()[0]
 
-        #pattern = "^kam(ailio|ctl)$"
         #pattern = "^.*$"
         if (re.match(pattern, str(process_name))):
             # sudo grep Swap /proc/29164/smaps
@@ -27,4 +26,4 @@ for filename in os.listdir("/proc/"):
             # print "Skipped: ", output
             continue
 
-print "Total: ", str(total)
+print "Total: " + str(total) + " kB"
